@@ -13,17 +13,20 @@
   <body>
 
     <header class="navbar navbar-dark bg-dark mb-5">
-        <h1 class="navbar-brand">Notes List</h1>
+      <h1 class="navbar-brand mx-auto">Notes List</h1>
     </header>
 
     <div class="container">
-        <div class="card">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ subject.title }}</h5>
           <ul class="list-group list-group-flush">
             {% for note in notes %}
-              <li class="list-group-item">{{ note.title }}</li>
+            <li class="list-group-item">{{ note.title }}</li>
             {% endfor %}
           </ul>
         </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
