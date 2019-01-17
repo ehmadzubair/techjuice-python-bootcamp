@@ -13,17 +13,19 @@
   <body>
 
     <header class="navbar navbar-dark bg-dark mb-5">
-        <h1 class="navbar-brand">Subjects List</h1>
+      <h1 class="navbar-brand mx-auto">Subjects List</h1>
     </header>
 
     <div class="container">
-        <div class="card">
-          <ul class="list-group list-group-flush">
-            {% for subject in subjects %}
-              <li class="list-group-item">{{ subject.title }}</li>
-            {% endfor %}
-          </ul>
-        </div>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          {% for subject in subjects %}
+          <li class="list-group-item">
+            <a href="{% url 'note_list' subject_id=subject.id %}">{{ subject.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->

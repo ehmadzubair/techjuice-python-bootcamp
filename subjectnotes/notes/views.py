@@ -12,4 +12,4 @@ def note_list(request, subject_id):
     subject = get_object_or_404(Subject, pk=subject_id)
     notes = subject.note_set.all()
 
-    return render(request, 'note_list.html', {'notes': notes})
+    return render(request, 'note_list.html', {'notes': notes, 'subject': subject})
