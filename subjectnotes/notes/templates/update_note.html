@@ -8,12 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Notes List</title>
+    <title>Update Note</title>
   </head>
   <body>
 
     <header class="navbar navbar-dark bg-dark mb-5">
-      <h1 class="navbar-brand mx-auto">Notes List</h1>
+      <h1 class="navbar-brand mx-auto">Update Note</h1>
     </header>
 
     <div class="container">
@@ -23,23 +23,11 @@
 
           <h5 class="card-title">{{ subject.title }}</h5>
 
-          <form class="form-inline mb-2" action="{% url 'note_list' subject_id=subject.id %}" method="POST">
+          <form class="form-inline mb-2" action="{% url 'update_note' note_id=note.id %}" method="POST">
             {% csrf_token %}
             {{ form }}
-            <input type="submit" value="Add Note" class="btn btn-primary">
+            <input type="submit" value="Update Note" class="btn btn-success">
           </form>
-
-          <ul class="list-group list-group-flush">
-            {% for note in notes %}
-            <li class="list-group-item">
-              <span>{{ note.title }} : </span>
-              <span>{{ note.text }}</span>
-              <a class="btn btn-danger float-right mx-2" href="{% url 'delete_note' note_id=note.id %}">delete</a>
-              <a class="btn btn-success float-right mx-2" href="{% url 'update_note' note_id=note.id %}">update</a>
-            </li>
-            {% endfor %}
-          </ul>
-
         </div>
       </div>
     </div>
